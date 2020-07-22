@@ -8,9 +8,12 @@ function readTestFile(fileName) {
 }
 
 function runTest(fileName) {
+    // 입력 Parsing
     const input = readTestFile(fileName).split(' ');
-    var a = parseInt(input[0]);
-    var b = parseInt(input[1]);
+    const a = parseInt(input[0]);
+    const b = parseInt(input[1]);
+
+    // 알고리즘 구현
     console.log(a+b);
 }
 
