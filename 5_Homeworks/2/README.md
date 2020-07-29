@@ -14,8 +14,6 @@
 ## 제출 기한 및 방법
 
 - **GitHub을 통해 제출**
-  1. 강의 Github Repository(<https://github.com/ai-creatv/algorithm>)를 Fork
-  ![Fork](img/1.png)
-  1. 본인의 Repository에 완성한 소스코드를 업로드
+  1. 본인의 Repository에 완성한 소스코드를 Push
 - **Push 완료 후, 강의 페이지의 Issue에 <ai@creatv.kr>으로 작성한 코드를 제출**
 - **8월 2일(일) 자정**까지 제출
