@@ -26,13 +26,10 @@ function isCorrect(s){
     }
 }
 
-function correctParenthesis(s){
-    if (s === '' || isCorrect(s) === true) {
-        return s;
-    }
-    
+function splitParenthesis(s){
     let balance = 0;
     let u, v;
+
     for (let i = 0; i < s.length; i++) {
         let c = s[i];
         if (c === '(') {
@@ -48,6 +45,15 @@ function correctParenthesis(s){
             break;
         }
     }
+    return [u, v]
+}
+
+function correctParenthesis(s){
+    if (s === '' || isCorrect(s) === true) {
+        return s;
+    }
+    
+    const [u, v] = splitParenthesis(s);
     
     if (isCorrect(u) === true) {
         return u + correctParenthesis(v);
