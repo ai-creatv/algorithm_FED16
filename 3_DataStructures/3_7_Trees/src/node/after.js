@@ -80,7 +80,7 @@ class BinaryTree {
             const node = queue.shift();
 
             if (node.value === value) {
-                return true;
+                return node;
             }
 
             if (node.left !== null) {
@@ -91,11 +91,12 @@ class BinaryTree {
             }
         }
 
-        return false;
+        return null;
     }
 
     dfs(value) {
         let isFound = false;
+        let foundNode = null;
         
         function recursive(node) {
             if (isFound === true) {
@@ -104,6 +105,7 @@ class BinaryTree {
 
             if (node.value === value) {
                 isFound = true;
+                foundNode = node;
                 return;
             }
             if (node.left !== null) {
@@ -115,7 +117,7 @@ class BinaryTree {
         }
         recursive(this.root);
         
-        return isFound;
+        return foundNode;
     }
 }
 
