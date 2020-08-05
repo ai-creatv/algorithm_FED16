@@ -58,25 +58,27 @@ class BinaryTree {
     }
 
     bfs(value) {
-        for (let el of this.array) {
+        for (let [idx, el] of this.array.entries()) {
             if (el === value) {
-                return true;
+                return idx;
             }
         }
         return false;
     }
 
     dfs(value) {
-        let is_found = false;
+        let isFound = false;
+        let foundValue = false;
         const array = this.array;
         
         function recursive(index) {
-            if (index >= array.length) {
+            if (index >= array.length || isFound === true) {
                 return;
             }
 
             if (array[index] === value) {
-                is_found = true;
+                isFound = true;
+                foundValue = index;
                 return;
             }
             
@@ -85,7 +87,7 @@ class BinaryTree {
         }
 
         recursive(0);
-        return is_found;
+        return foundValue;
     }
 
 }
