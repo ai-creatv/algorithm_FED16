@@ -23,7 +23,6 @@
 ## 알고리즘
 
 - 재귀 함수
-- 문자열 다루기
 - 해쉬 테이블 (`Map` class)
 - 동적 계획법 (Dynamic Programming; DP)
 - 검색 트리 (Re**trie**val Tree; Trie)
