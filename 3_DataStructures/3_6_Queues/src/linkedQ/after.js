@@ -8,12 +8,12 @@ class Node {
 
 class LinkedQueue {
     constructor() {
-        this.head = null;
-        this.tail = null;
+        this.front = null;
+        this.rear = null;
     }
     
     isEmpty() {
-        if (this.head === null) {
+        if (this.front === null) {
             return true;
         } else {
             return false;
@@ -21,34 +21,34 @@ class LinkedQueue {
     }
 
     put(value) {
-        if (this.head === null) {
-            this.head = new Node(value, null, null);
-            this.tail = this.head;
+        if (this.front === null) {
+            this.front = new Node(value, null, null);
+            this.rear = this.front;
         } else {
-            this.tail = new Node(value, this.tail, null);
-            this.tail.prev.next = this.tail;
+            this.rear = new Node(value, this.rear, null);
+            this.rear.prev.next = this.rear;
         }
     }
 
     get() {
         let value = undefined;
-        if (this.head === null) {
+        if (this.front === null) {
             return undefined;
-        } else if (this.head === this.rear) {
-            value = this.head.value;
-            this.head = null;
+        } else if (this.front === this.rear) {
+            value = this.front.value;
+            this.front = null;
             this.rear = null;
         } else {
-            value = this.head.value;
-            this.head = this.head.next;
-            this.head.prev = null;
+            value = this.front.value;
+            this.front = this.front.next;
+            this.front.prev = null;
         }
         return value;
     }
 
 
     print() {
-        let curr = this.head;
+        let curr = this.front;
 
         if (curr === null) {
             console.log('[]');

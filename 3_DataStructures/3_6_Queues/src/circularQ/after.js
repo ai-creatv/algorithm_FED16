@@ -43,8 +43,9 @@ class CircularQueue {
         let s = '';
         let endIdx = this.rear;
 
-        if (this.rear === this.front && this.isFull) {
+        if (this.rear === this.front && this.isFull === false) {
             console.log('[]');
+            return;
         }
 
         if (this.rear <= this.front) {
