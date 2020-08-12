@@ -21,9 +21,8 @@ class Graph {
         this.vertices.push(vertex);
     }
 
-    bfs(vertexInd) {
+    bfs(vertexInd, value) {
         const visited = new Uint8Array(this.vertices.length);
-        const path = new Array();
         const queue = new Array();
         queue.push(vertexInd);
 
@@ -31,7 +30,9 @@ class Graph {
             const vertInd = queue.shift();
 
             if (visited[vertInd] === 0) {
-                path.push(vertInd);
+                if (this.vertices[vertInd].value === value) {
+                    return this.vertices[vertInd];
+                }
                 visited[vertInd] = 1;
 
                 this.vertices[vertInd].adjList.forEach(index => {
@@ -40,20 +41,24 @@ class Graph {
             }
         }
 
-        return path;
+        return undefined;
     }
 
-    dfs(vertexInd) {
+    dfs(vertexInd, value) {
         const visited = new Uint8Array(this.vertices.length);
-        const path = new Array();
         const vertices = this.vertices;
+        let isFound = false;
+        let foundNode = undefined;
 
         function recursive(vertInd) {
-            if (visited[vertInd] === 1) {
+            if (visited[vertInd] === 1 || isFound === true) {
                 return;
             }
 
-            path.push(vertInd);
+            if (this.vertices[vertInd].value === value) {
+                foundNode =  this.vertices[vertInd];
+                isFound = true;
+            }
             visited[vertInd] = 1;
 
             vertices[vertInd].adjList.forEach(index => {
@@ -63,7 +68,7 @@ class Graph {
 
         recursive(vertexInd);
 
-        return path;
+        return foundNode;
     }
 }
 
